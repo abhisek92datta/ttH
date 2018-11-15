@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+# A hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, place it (link) as a file "pre-commit" in .git/hooks.
+
+#
+# function space
+#
+
+# double-check to avoid taking wrong files in
+Get_files()
+{
+    FORMAT_FILES=""
+    for filename in `git diff --cached --name-only | grep "\.cc"`; do
+        if [[ "$filename" == *.cc ]]; then
+            FORMAT_FILES="${FORMAT_FILES} ${filename}"
+        fi
+    done
+    
+    for filename in `git diff --cached --name-only | grep "\.cpp"`; do
+        if [[ "$filename" == *.cpp ]]; then
+            FORMAT_FILES="${FORMAT_FILES} ${filename}"
+        fi
+    done
+    
+    for filename in `git diff --cached --name-only | grep "\.cxx"`; do
+        if [[ "$filename" == *.cxx ]]; then
+            FORMAT_FILES="${FORMAT_FILES} ${filename}"
+        fi
+    done
+    
+    for filename in `git diff --cached --name-only | grep "\.h"`; do
+        if [[ "$filename" == *.h ]]; then
+            FORMAT_FILES="${FORMAT_FILES} ${filename}"
+        fi
+    done
+}
+
+Format_code()
+{
+    GIT_PWD=`git rev-parse --show-toplevel`
+    echo "GIT top directory: ${GIT_PWD}"
+    WORKING_DIR=${PWD}
+    
+    Get_files
+    echo "Fomatting the following files:"
+    #echo "${FORMAT_FILES}"
+    
+    for filename in `echo ${FORMAT_FILES}`; do
+        echo "clang-format --style=file -i ${filename}"
+        clang-format --style=file -i ${filename}
+        git add ${filename}
+    done
+
+    unset FORMAT_FILES
+    unset WORKING_DIR
+    unset GIT_PWD
+}
+
+#
+# execute
+#
+Format_code

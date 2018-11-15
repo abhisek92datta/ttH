@@ -1,0 +1,6 @@
+MC
+ttHbb
+1
+ttHbbNtuple_ttHbb.root
+all
+0.2953

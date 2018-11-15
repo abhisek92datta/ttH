@@ -1,0 +1,8 @@
+<lcgdict>
+    <class name="CU_ttH_EDA_Reco_Ntuple"/>
+    <class name="CU_ttH_EDA_Gen_Ntuple"/>
+    <class name="CU_ttH_EDA_Comm_Ntuple"/>
+    <class name="RoccoR"/>
+    <class name="RocRes"/>
+    <class name="std::vector<std::vector<std::string>>" />
+</lcgdict>

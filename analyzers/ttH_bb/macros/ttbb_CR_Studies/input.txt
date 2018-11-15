@@ -1,0 +1,6 @@
+ttjets
+all
+0
+1
+/eos/uscms/store/user/adatta/ttH_Analysis/Control_Region_Z/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8/ttH_Analyzer_ttjets_pp/170929_191628/0000/ttHbbNtuple*.root
+831.76

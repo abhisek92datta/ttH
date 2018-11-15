@@ -1,0 +1,8 @@
+data
+sm_2017B
+2
+/eos/uscms/store/user/adatta/ttH_Analysis/Main_Analysis_2017/Data/SingleMuon/ttH_Analyzer_SingleMuon_Run2017B/180706_162759/0000/ttHbbNtuple_*.root
+/eos/uscms/store/user/adatta/ttH_Analysis/Main_Analysis_2017/Data/SingleMuon/ttH_Analyzer_SingleMuon_Run2017B/180706_162759/0001/ttHbbNtuple_*.root
+1.0
+emu
+syst_nominal
